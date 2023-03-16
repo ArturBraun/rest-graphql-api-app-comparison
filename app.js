@@ -4,8 +4,10 @@ import cors from "cors";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import http from "http";
 import bodyParser from "body-parser";
-import { typeDefs, resolvers } from "./interfaces/graphql/schema.js";
 import express from "express";
+
+import { typeDefs, resolvers } from "./interfaces/graphql/schema.js";
+import { usersRouter } from "./interfaces/rest/users.js";
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -17,8 +19,9 @@ const server = new ApolloServer({
 });
 await server.start();
 
+// Graphql API
 app.use(
-  "/",
+  "/graphql",
   cors(),
   bodyParser.json(),
   expressMiddleware(server, {
@@ -26,6 +29,8 @@ app.use(
   })
 );
 
-await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+// Rest API
+app.use("/rest/users", usersRouter);
 
-console.log(`🚀 Server ready at http://localhost:4000/`);
+await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+console.log(`🚀 Server ready`);

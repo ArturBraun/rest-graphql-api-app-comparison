@@ -16,5 +16,6 @@ const users = [
 ];
 
 const findUserById = (id) => users.find((user) => user.id === id);
+const findAllUsers = () => users;
 
-export { findUserById };
+export { findUserById, findAllUsers };
