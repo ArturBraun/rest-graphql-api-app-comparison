@@ -24,9 +24,7 @@ app.use(
   "/graphql",
   cors(),
   bodyParser.json(),
-  expressMiddleware(server, {
-    context: async ({ req }) => ({ token: req.headers.token }),
-  })
+  expressMiddleware(server)
 );
 
 // Rest API
