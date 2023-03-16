@@ -1,10 +1,11 @@
-import { users } from "../../../infrastructure/users-repository.js";
+import { findUserById } from "../../../infrastructure/users-repository.js";
 import { getRequestedFields } from "../utils.js";
 
 const getUserById = (parent, args, contextValue, info) => {
   const requestedFields = getRequestedFields(info, "User");
   console.log(JSON.stringify(requestedFields));
-  return users.find((user) => user.id === parseInt(args.id));
+
+  return findUserById(parseInt(args.id));
 };
 
 const usersResolver = {
