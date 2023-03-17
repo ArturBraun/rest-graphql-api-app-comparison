@@ -8,13 +8,23 @@ import {
 const usersRouter = Router();
 
 usersRouter.get("/:id", (req, res) => {
-  const user = findUserById(parseInt(req.params.id));
-  res.json(user);
+  findUserById(parseInt(req.params.id))
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((error) => {
+      console.error(error.message);
+      res.status(400).send();
+    });
 });
 
 usersRouter.get("/", (req, res) => {
-  const users = findAllUsers();
-  res.json(users);
+  findAllUsers()
+    .then((users) => res.json(users))
+    .catch((error) => {
+      console.error(error.message);
+      res.status(400).send();
+    });
 });
 
 usersRouter.post("/", (req, res) => {
