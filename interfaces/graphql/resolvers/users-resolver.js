@@ -5,12 +5,13 @@ import {
 import { getRequestedFields } from "../utils.js";
 
 const getUserById = async (parent, args, contextValue, info) => {
-  const requestedFields = getRequestedFields(info, "User");
-  // console.log(JSON.stringify(requestedFields));
   return findUserById(parseInt(args.id));
 };
 
-const getAllUsers = () => findAllUsers().then((users) => users);
+const getAllUsers = async (parent, args, contextValue, info) => {
+  const requestedFields = getRequestedFields(info, "User");
+  return findAllUsers(requestedFields);
+};
 
 const usersResolver = {
   Query: {
