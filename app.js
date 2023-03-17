@@ -20,14 +20,10 @@ const server = new ApolloServer({
 await server.start();
 
 // Graphql API
-app.use(
-  "/graphql",
-  cors(),
-  bodyParser.json(),
-  expressMiddleware(server)
-);
+app.use("/graphql", cors(), bodyParser.json(), expressMiddleware(server));
 
 // Rest API
+app.use(express.json());
 app.use("/rest/users", usersRouter);
 
 await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));

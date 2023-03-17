@@ -1,3 +1,5 @@
+import { dbClient } from "./database/db-client.js";
+
 const users = [
   {
     id: 0,
@@ -16,6 +18,12 @@ const users = [
 ];
 
 const findUserById = (id) => users.find((user) => user.id === id);
-const findAllUsers = () => users;
+const findAllUsers = () => dbClient.user.findMany();
+const addNewUser = (newUser) => {
+  const createdUser = dbClient.user.create({
+    data: newUser,
+  });
+  return createdUser;
+};
 
-export { findUserById, findAllUsers };
+export { findUserById, findAllUsers, addNewUser };
