@@ -1,70 +1,209 @@
 {
-  "info": {
-    "_postman_id": "d9899f10-6020-4df0-b230-c063a15ff887",
-    "name": "rest-graphql-api-app-comparison",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "graphql-users",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "graphql",
-          "graphql": {
-            "query": "query GetUsers {\r\n  user(id: 1) {\r\n    firstName\r\n    surname\r\n    dateOfBirth\r\n  }\r\n}",
-            "variables": ""
-          }
-        },
-        "url": {
-          "raw": "http://localhost:4000/graphql",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
-          "path": ["graphql"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "rest-get-user",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:4000/rest/users/1",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
-          "path": ["rest", "users", "1"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "rest-post-users",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"email\": \"user7@abc.com\",\r\n    \"firstName\": \"Jan7\",\r\n    \"surname\": \"Kowalski7\",\r\n    \"dateOfBirth\": \"12-09-1970\",\r\n    \"gender\": \"M\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:4000/rest/users/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
-          "path": ["rest", "users", ""]
-        }
-      },
-      "response": []
-    }
-  ]
+	"info": {
+		"_postman_id": "d9899f10-6020-4df0-b230-c063a15ff887",
+		"name": "rest-graphql-api-app-comparison",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "graphql-users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetUsers {\r\n  user(id: 1) {\r\n    firstName\r\n    surname\r\n    dateOfBirth\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rest-get-user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/rest/users/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"rest",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rest-get-product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/rest/products/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"rest",
+						"products",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rest-get-products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/rest/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"rest",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rest-get-categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/rest/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"rest",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rest-post-users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user1@gmail.com\",\r\n    \"firstName\": \"Jan1\",\r\n    \"lastName\": \"Kowalski1\",\r\n    \"dateOfBirth\":\"12-02-1990\",\r\n    \"address\": \"Janusza 22, 00-123 Warsaw\",\r\n    \"gender\": \"M\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/rest/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"rest",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rest-post-products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Laptop2\",\r\n    \"description\": \"Description of Laptop2\",\r\n    \"price\": 2000.00,\r\n    \"categoryId\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/rest/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"rest",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rest-post-categories",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Laptops\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/rest/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"rest",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
 }

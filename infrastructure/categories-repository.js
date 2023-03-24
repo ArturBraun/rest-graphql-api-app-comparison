@@ -7,11 +7,11 @@ const findAllCategories = (requiredFields) => {
     queryObject.select = getRequestedFieldsSelectObject(requiredFields);
   }
 
-  return dbClient.user.findMany(queryObject);
+  return dbClient.category.findMany(queryObject);
 };
 
 const addNewCategory = (newCategory) => {
-  const createdCategory = dbClient.user.create({
+  const createdCategory = dbClient.category.create({
     data: newCategory,
   });
   return createdCategory;
