@@ -28,4 +28,19 @@ const addNewProduct = (newProduct) => {
   return createdProduct;
 };
 
-export { findProductById, findPaginatedProducts, addNewProduct };
+const findProductsByIds = (ids) => {
+  return dbClient.product.findMany({
+    where: {
+      productId: {
+        in: ids,
+      },
+    },
+  });
+};
+
+export {
+  findProductById,
+  findPaginatedProducts,
+  addNewProduct,
+  findProductsByIds,
+};
