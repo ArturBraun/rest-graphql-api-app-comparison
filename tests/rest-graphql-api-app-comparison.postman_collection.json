@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "graphql-users",
+			"name": "graphql-users-get",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -14,6 +14,32 @@
 					"mode": "graphql",
 					"graphql": {
 						"query": "query GetUsers {\r\n  user(id: 1) {\r\n    firstName\r\n    surname\r\n    dateOfBirth\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graphql-categories-get",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetCategories {\r\n  categories {\r\n    categoryId\r\n    name\r\n  }\r\n}",
 						"variables": ""
 					}
 				},
