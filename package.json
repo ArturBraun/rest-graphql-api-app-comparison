@@ -16,6 +16,7 @@
     "graphql-parse-resolve-info": "^4.13.0",
     "graphql-tools": "^8.3.19",
     "http-errors": "~1.6.3",
+    "lodash": "^4.17.21",
     "prettier": "^2.8.4",
     "sqlite3": "^5.1.6",
     "yarn": "^1.22.19"

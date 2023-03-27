@@ -10,6 +10,7 @@ import { typeDefs, resolvers } from "./interfaces/graphql/schema.js";
 import { usersRouter } from "./interfaces/rest/users.js";
 import { categoriesRouter } from "./interfaces/rest/categories.js";
 import { productsRouter } from "./interfaces/rest/products.js";
+import { ordersRouter } from "./interfaces/rest/orders.js";
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use("/rest/users", usersRouter);
 app.use("/rest/categories", categoriesRouter);
 app.use("/rest/products", productsRouter);
+app.use("/rest/orders", ordersRouter);
 
 await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
 console.log(`🚀 Server ready`);
