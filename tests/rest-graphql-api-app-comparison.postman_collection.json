@@ -58,6 +58,58 @@
 			"response": []
 		},
 		{
+			"name": "graphql-products-paginated-get",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetPaginatedProducts {\r\n  products(pageNumber:1, pageSize:2) {\r\n    productId\r\n    name\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "graphql-product-get",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetProductById {\r\n  product(id:5) {\r\n    productId\r\n    name\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "rest-user-orders-get",
 			"request": {
 				"method": "GET",

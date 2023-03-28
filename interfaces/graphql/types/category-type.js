@@ -1,7 +1,7 @@
 const categoryTypeDefs = `
     type Category {
-        categoryId: ID
-        name: String
+        categoryId: ID!
+        name: String!
     }
     
     type Query {

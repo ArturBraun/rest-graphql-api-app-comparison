@@ -1,11 +1,11 @@
 const userTypeDefs = `
   type User {
-    id: ID
-    email: String
-    firstName: String
-    surname: String
-    dateOfBirth: String
-    gender: String
+    userId: ID!
+    email: String!
+    firstName: String!
+    surname: String!
+    dateOfBirth: String!
+    gender: String!
   }
 
   type Query {
