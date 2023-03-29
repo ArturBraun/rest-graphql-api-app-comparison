@@ -7,7 +7,8 @@ const ordersRouter = Router();
 ordersRouter.get("/:id", (req, res) => {
   findOrderById(parseInt(req.params.id))
     .then((order) => {
-      res.json(order);
+      if (!order) res.status(404).send();
+      else res.json(order);
     })
     .catch((error) => {
       console.error(error.message);

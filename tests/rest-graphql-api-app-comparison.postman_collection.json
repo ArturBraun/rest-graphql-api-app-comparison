@@ -13,7 +13,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "query GetUsers {\r\n  user(id: 1) {\r\n    firstName\r\n    surname\r\n    dateOfBirth\r\n  }\r\n}",
+						"query": "query GetUsers {\r\n  user(id: 1) {\r\n    firstName\r\n    lastName\r\n    dateOfBirth\r\n  }\r\n}",
 						"variables": ""
 					}
 				},
@@ -132,12 +132,12 @@
 			"response": []
 		},
 		{
-			"name": "rest-user-get",
+			"name": "rest-users-get",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:4000/rest/users/3",
+					"raw": "http://localhost:4000/rest/users/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -146,7 +146,28 @@
 					"path": [
 						"rest",
 						"users",
-						"3"
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rest-user-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/rest/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"rest",
+						"users",
+						"2"
 					]
 				}
 			},
@@ -159,7 +180,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"user1@gmail.com\",\r\n    \"firstName\": \"Jan1\",\r\n    \"lastName\": \"Kowalski1\",\r\n    \"dateOfBirth\":\"12-02-1990\",\r\n    \"address\": \"Janusza 22, 00-123 Warsaw\",\r\n    \"gender\": \"M\"\r\n}",
+					"raw": "{\r\n    \"email\": \"user2@gmail.com\",\r\n    \"firstName\": \"Jan2\",\r\n    \"lastName\": \"Kowalski2\",\r\n    \"dateOfBirth\":\"11-03-1989\",\r\n    \"address\": \"Janusza 33, 00-123 Warsaw\",\r\n    \"gender\": \"M\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

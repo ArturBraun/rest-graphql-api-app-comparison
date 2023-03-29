@@ -5,7 +5,8 @@ import {
 import { getRequestedFields } from "../utils.js";
 
 const getUserById = async (parent, args, contextValue, info) => {
-  return findUserById(parseInt(args.id));
+  const requestedFields = getRequestedFields(info, "User");
+  return findUserById(parseInt(args.id), requestedFields);
 };
 
 const getAllUsers = async (parent, args, contextValue, info) => {

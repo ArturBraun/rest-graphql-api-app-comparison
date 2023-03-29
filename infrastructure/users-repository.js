@@ -1,12 +1,18 @@
 import { dbClient } from "./database/db-client.js";
 import { getRequestedFieldsSelectObject } from "./utils.js";
 
-const findUserById = (userId) =>
-  dbClient.user.findUnique({
+const findUserById = (id, requiredFields) => {
+  const queryObject = {
     where: {
-      id: userId,
+      userId: id,
     },
-  });
+  };
+  if (requiredFields) {
+    queryObject.select = getRequestedFieldsSelectObject(requiredFields);
+  }
+
+  return dbClient.user.findUnique(queryObject);
+};
 
 const findAllUsers = (requiredFields) => {
   const queryObject = {};

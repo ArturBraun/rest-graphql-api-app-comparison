@@ -2,15 +2,18 @@ import {
   findPaginatedProducts,
   findProductById,
 } from "../../../infrastructure/products-repository.js";
+import { getRequestedFields } from "../utils.js";
 
 const getPaginatedProducts = async (parent, args, contextValue, info) => {
   const { pageNumber, pageSize } = args;
-  return findPaginatedProducts(null, pageNumber, pageSize);
+  const requestedFields = getRequestedFields(info, "Product");
+  return findPaginatedProducts(pageNumber, pageSize, requestedFields);
 };
 
 const getProductById = async (parent, args, contextValue, info) => {
   const { id } = args;
-  return findProductById(parseInt(id));
+  const requestedFields = getRequestedFields(info, "Product");
+  return findProductById(parseInt(id), requestedFields);
 };
 
 const productsResolver = {

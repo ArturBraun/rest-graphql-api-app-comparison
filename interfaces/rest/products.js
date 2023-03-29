@@ -10,7 +10,8 @@ const productsRouter = Router();
 productsRouter.get("/:id", (req, res) => {
   findProductById(parseInt(req.params.id))
     .then((product) => {
-      res.json(product);
+      if (!product) res.status(404).send();
+      else res.json(product);
     })
     .catch((error) => {
       console.error(error.message);
@@ -19,7 +20,7 @@ productsRouter.get("/:id", (req, res) => {
 });
 
 productsRouter.get("/", (req, res) => {
-  findPaginatedProducts(null, req.query.pageNumber, req.query.pageSize)
+  findPaginatedProducts(req.query.pageNumber, req.query.pageSize)
     .then((products) => res.json(products))
     .catch((error) => {
       console.error(error.message);

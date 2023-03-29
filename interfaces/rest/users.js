@@ -11,7 +11,8 @@ const usersRouter = Router();
 usersRouter.get("/:id", (req, res) => {
   findUserById(parseInt(req.params.id))
     .then((user) => {
-      res.json(user);
+      if (!user) res.status(404).send();
+      else res.json(user);
     })
     .catch((error) => {
       console.error(error.message);
@@ -42,7 +43,8 @@ usersRouter.post("/", (req, res) => {
 usersRouter.get("/:id/orders", (req, res) => {
   findUserOrders(parseInt(req.params.id))
     .then((orders) => {
-      res.json(orders);
+      if (!orders) res.status(404).send();
+      else res.json(orders);
     })
     .catch((error) => {
       console.error(error.message);

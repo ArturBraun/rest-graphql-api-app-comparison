@@ -3,7 +3,7 @@ const userTypeDefs = `
     userId: ID!
     email: String!
     firstName: String!
-    surname: String!
+    lastName: String!
     dateOfBirth: String!
     gender: String!
   }

@@ -1,14 +1,20 @@
 import { dbClient } from "./database/db-client.js";
 import { getRequestedFieldsSelectObject } from "./utils.js";
 
-const findProductById = (id) =>
-  dbClient.product.findUnique({
+const findProductById = (id, requiredFields) => {
+  const queryObject = {
     where: {
       productId: id,
     },
-  });
+  };
+  if (requiredFields) {
+    queryObject.select = getRequestedFieldsSelectObject(requiredFields);
+  }
 
-const findPaginatedProducts = (requiredFields, pageNumber, pageSize) => {
+  return dbClient.product.findUnique(queryObject);
+};
+
+const findPaginatedProducts = (pageNumber, pageSize, requiredFields) => {
   const queryObject = {};
   if (requiredFields) {
     queryObject.select = getRequestedFieldsSelectObject(requiredFields);
