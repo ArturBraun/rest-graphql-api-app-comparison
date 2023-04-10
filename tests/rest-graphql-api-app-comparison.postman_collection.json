@@ -13,7 +13,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetUsers {\r\n  user(id: 1) {\r\n    firstName\r\n    lastName\r\n    dateOfBirth\r\n  }\r\n}",
+            "query": "query GetUsers {\r\n  user(id: 1) {\r\n    firstName\r\n    lastName\r\n    dateOfBirth\r\n    city\r\n    phone\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -35,7 +35,29 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetOrder {\r\n  order(orderId: 1) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n  }\r\n}",
+            "query": "query GetOrder {\r\n  order(orderId: 1) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "graphql-user-orders-get",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query UserOrders {\r\n  userOrders(userId: 1) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
             "variables": ""
           }
         },
