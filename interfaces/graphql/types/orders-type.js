@@ -7,6 +7,7 @@ const orderTypeDefs = `
         deliveryMethod: String!
         paymentMethod: String!
         address: String!
+        orderPositions: [OrderPosition]!
     }
 
     type OrderPosition {
@@ -15,11 +16,12 @@ const orderTypeDefs = `
         productId: Int!
         quantity: Int!
         price: Float!
+        product: Product
     }
 
     type Query {
-        order(orderId: Int!): Order
-        userOrders(userId: Int!): [Order]
+        order(orderId: ID!): Order
+        userOrders(userId: ID!): [Order]
     }
 `;
 

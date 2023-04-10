@@ -2,7 +2,7 @@ import { findAllCategories } from "../../../infrastructure/categories-repository
 import { getRequestedFields } from "../utils.js";
 
 const getAllCategories = async (parent, args, contextValue, info) => {
-  const requestedFields = getRequestedFields(info, "Category");
+  const requestedFields = getRequestedFields(info);
   return findAllCategories(requestedFields);
 };
 

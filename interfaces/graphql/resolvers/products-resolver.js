@@ -6,13 +6,13 @@ import { getRequestedFields } from "../utils.js";
 
 const getPaginatedProducts = async (parent, args, contextValue, info) => {
   const { pageNumber, pageSize } = args;
-  const requestedFields = getRequestedFields(info, "Product");
+  const requestedFields = getRequestedFields(info);
   return findPaginatedProducts(pageNumber, pageSize, requestedFields);
 };
 
 const getProductById = async (parent, args, contextValue, info) => {
   const { id } = args;
-  const requestedFields = getRequestedFields(info, "Product");
+  const requestedFields = getRequestedFields(info);
   return findProductById(parseInt(id), requestedFields);
 };
 

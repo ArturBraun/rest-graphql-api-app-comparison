@@ -6,13 +6,13 @@ import {
 import { getRequestedFields } from "../utils.js";
 
 const getOrder = async (parent, args, contextValue, info) => {
-  const requestedFields = getRequestedFields(info, "Order");
-  return findOrderById(args.orderId, requestedFields);
+  const requestedFields = getRequestedFields(info);
+  return findOrderById(parseInt(args.orderId), requestedFields);
 };
 
 const getUserOrders = async (parent, args, contextValue, info) => {
-  const requestedFields = getRequestedFields(info, "Order");
-  return findUserOrders(args.userId, requestedFields);
+  const requestedFields = getRequestedFields(info);
+  return findUserOrders(parseInt(args.userId), requestedFields);
 };
 
 const ordersResolver = {
