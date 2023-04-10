@@ -7,6 +7,10 @@ const orderTypeDefs = `
         deliveryMethod: String!
         paymentMethod: String!
         address: String!
+        postalCode:  String!  
+        city: String! 
+        country: String!  
+        phone: String!
         orderPositions: [OrderPosition]!
     }
 

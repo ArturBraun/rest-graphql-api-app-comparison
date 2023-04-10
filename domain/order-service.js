@@ -14,6 +14,10 @@ const placeOrder = async (orderRequest) => {
     deliveryMethod: orderRequest.deliveryMethod,
     paymentMethod: orderRequest.paymentMethod,
     address: orderRequest.address,
+    postalCode: orderRequest.postalCode,
+    city: orderRequest.city,
+    country: orderRequest.country,
+    phone: orderRequest.phone,
     orderPositions: [],
   };
 

@@ -13,11 +13,6 @@ model User {
   firstName   String
   lastName    String
   dateOfBirth String
-  address     String
-  postalCode  String
-  city        String
-  country     String
-  phone       String
   gender      String
   orders      Order[]
 }
@@ -47,6 +42,10 @@ model Order {
   deliveryMethod String
   paymentMethod  String
   address        String
+  postalCode     String
+  city           String
+  country        String
+  phone          String
   orderPositions OrderPosition[]
 }
 

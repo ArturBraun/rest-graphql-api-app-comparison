@@ -13,7 +13,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetUsers {\r\n  user(id: 1) {\r\n    firstName\r\n    lastName\r\n    dateOfBirth\r\n    city\r\n    phone\r\n  }\r\n}",
+            "query": "query GetUsers {\r\n  user(id: 1) {\r\n    firstName\r\n    lastName\r\n    dateOfBirth\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -35,7 +35,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetOrder {\r\n  order(orderId: 1) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
+            "query": "query GetOrder {\r\n  order(orderId: 3) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    postalCode\r\n    city\r\n    country\r\n    phone\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -282,7 +282,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"userId\": 1,\r\n    \"deliveryMethod\": \"HOME_DELIVERY\",\r\n    \"paymentMethod\": \"PAYPAL\",\r\n    \"address\": \"Warszawska 1, 01-234 Warszawa\",\r\n    \"orderPositions\": [\r\n        {\r\n            \"productId\": 3,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"productId\": 4,\r\n            \"quantity\": 3\r\n        }\r\n    ]\r\n}",
+          "raw": "{\r\n    \"userId\": 2,\r\n    \"deliveryMethod\": \"HOME_DELIVERY\",\r\n    \"paymentMethod\": \"PAYPAL\",\r\n    \"address\": \"Warszawska 1\",\r\n    \"postalCode\": \"00-123\",\r\n    \"city\": \"Warsaw\",\r\n    \"country\": \"Poland\",\r\n    \"phone\": \"123456789\",\r\n    \"orderPositions\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 3\r\n        },\r\n        {\r\n            \"productId\": 3,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
           "options": {
             "raw": {
               "language": "json"
