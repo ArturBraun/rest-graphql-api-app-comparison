@@ -4,8 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start-dev": "nodemon app.js",
-    "format-code": "prettier --write ."
+    "prisma-generate": "npx prisma generate --schema=./infrastructure/database/schema.prisma",
+    "prisma-migrate:dev": "npx prisma migrate dev --schema=./infrastructure/database/schema.prisma",
+    "prisma-migrate:prod": "npx prisma migrate deploy --schema=./infrastructure/database/schema.prisma",
+    "start:dev": "nodemon app.js",
+    "start:prod": "node app.js",
+    "format-code": "prettier --write .",
+    "build-docker-image": "docker build -t rest-graphql-api-app-comparison .",
+    "start-docker-image": "docker run -p 4000:4000 rest-graphql-api-app-comparison"
   },
   "dependencies": {
     "@apollo/server": "^4.5.0",
@@ -22,6 +28,7 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "prisma": "^4.12.0"
   }
 }
