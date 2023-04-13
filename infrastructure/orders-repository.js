@@ -30,16 +30,23 @@ const findUserOrders = (userId, requiredFields) => {
   return dbClient.order.findMany(queryObject);
 };
 
-const addNewOrder = (newOrder) => {
+const addNewOrder = (newOrder, requiredFields) => {
   const orderDao = lodash.cloneDeep(newOrder);
   delete orderDao.orderPositions;
   orderDao.orderPositions = {
     create: newOrder.orderPositions,
   };
-  const createdOrder = dbClient.order.create({
+
+  const createObject = {
     data: orderDao,
-  });
-  return createdOrder;
+  };
+  if (requiredFields) {
+    createObject.select = getRequestedFieldsSelectObject(requiredFields);
+  }
+
+  console.log(JSON.stringify(createObject));
+
+  return dbClient.order.create(createObject);
 };
 
 export { findOrderById, findUserOrders, addNewOrder };

@@ -50,6 +50,28 @@
       "response": []
     },
     {
+      "name": "graphql-order-post",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation PlaceOrder {\r\n  placeOrder(order: {     \r\n    userId: 1,\r\n    deliveryMethod: \"HOME_DELIVERY\",\r\n    paymentMethod: \"PAYPAL\",\r\n    address: \"Warszawska 12\",\r\n    postalCode: \"22-456\",\r\n    city: \"Warsaw\",\r\n    country: \"Poland\",\r\n    phone: \"000123000\",\r\n    orderPositions: [\r\n        {\r\n            productId: 1,\r\n            quantity: 1\r\n        },\r\n        {\r\n            productId: 2,\r\n            quantity: 1\r\n        }\r\n    ]\r\n  }) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    postalCode\r\n    city\r\n    country\r\n    phone\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "graphql-user-orders-get",
       "request": {
         "method": "POST",

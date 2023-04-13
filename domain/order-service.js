@@ -1,7 +1,7 @@
 import { addNewOrder } from "../infrastructure/orders-repository.js";
 import { findProductsByIds } from "../infrastructure/products-repository.js";
 
-const placeOrder = async (orderRequest) => {
+const placeOrder = async (orderRequest, requiredFields) => {
   const orderedProductsInfo = await findProductsByIds(
     orderRequest.orderPositions.map((orderPosition) => orderPosition.productId)
   );
@@ -33,7 +33,7 @@ const placeOrder = async (orderRequest) => {
   }
 
   orderData.totalPrice = totalPrice;
-  return addNewOrder(orderData);
+  return addNewOrder(orderData, requiredFields);
 };
 
 export { placeOrder };
