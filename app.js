@@ -11,6 +11,7 @@ import { usersRouter } from "./interfaces/rest/users.js";
 import { categoriesRouter } from "./interfaces/rest/categories.js";
 import { productsRouter } from "./interfaces/rest/products.js";
 import { ordersRouter } from "./interfaces/rest/orders.js";
+import { recommendedProductsRouter } from "./interfaces/rest/recommended-products.js";
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -29,6 +30,7 @@ app.use("/graphql", cors(), bodyParser.json(), expressMiddleware(server));
 app.use(express.json());
 app.use("/rest/users", usersRouter);
 app.use("/rest/categories", categoriesRouter);
+app.use("/rest/products/recommended", recommendedProductsRouter);
 app.use("/rest/products", productsRouter);
 app.use("/rest/orders", ordersRouter);
 

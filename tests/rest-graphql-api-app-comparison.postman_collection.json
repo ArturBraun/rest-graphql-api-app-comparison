@@ -160,6 +160,28 @@
       "response": []
     },
     {
+      "name": "graphql-recommended-products-get",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query GetRecommendedProducts {\r\n  recommendedProducts(limit:2) {\r\n    productId\r\n    product {\r\n        name\r\n        category {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/graphql",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "rest-user-orders-get",
       "request": {
         "method": "GET",
@@ -278,6 +300,51 @@
           "host": ["localhost"],
           "port": "4000",
           "path": ["rest", "products", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "rest-get-recommended-products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/rest/products/recommended?limit=2",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["rest", "products", "recommended"],
+          "query": [
+            {
+              "key": "limit",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "rest-recommended-product-post",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"productId\": 3\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/rest/products/recommended",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["rest", "products", "recommended"]
         }
       },
       "response": []

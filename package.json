@@ -7,6 +7,7 @@
     "prisma-generate": "npx prisma generate --schema=./infrastructure/database/schema.prisma",
     "prisma-migrate:dev": "npx prisma migrate dev --schema=./infrastructure/database/schema.prisma",
     "prisma-migrate:prod": "npx prisma migrate deploy --schema=./infrastructure/database/schema.prisma",
+    "prisma-format": "npx prisma format --schema=./infrastructure/database/schema.prisma",
     "start:dev": "nodemon app.js",
     "start:prod": "node app.js",
     "format-code": "prettier --write .",

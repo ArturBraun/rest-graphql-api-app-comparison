@@ -5,6 +5,7 @@ const productTypeDefs = `
         description: String!
         price: Float!
         categoryId: Int!
+        category: Category
     }
 
     type Query {
