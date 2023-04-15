@@ -12,6 +12,7 @@ import { categoriesRouter } from "./interfaces/rest/categories.js";
 import { productsRouter } from "./interfaces/rest/products.js";
 import { ordersRouter } from "./interfaces/rest/orders.js";
 import { recommendedProductsRouter } from "./interfaces/rest/recommended-products.js";
+import { testDataRouter } from "./interfaces/rest/test-data.js";
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -33,6 +34,7 @@ app.use("/rest/categories", categoriesRouter);
 app.use("/rest/products/recommended", recommendedProductsRouter);
 app.use("/rest/products", productsRouter);
 app.use("/rest/orders", ordersRouter);
+app.use("/rest/test-data", testDataRouter);
 
 await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
 console.log(`🚀 Server ready`);

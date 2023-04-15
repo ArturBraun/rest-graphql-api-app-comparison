@@ -426,6 +426,60 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "rest-count-test-data",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/rest/test-data/count",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["rest", "test-data", "count"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "rest-create-test-data",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"categories\": 10,\r\n    \"products\": 100,\r\n    \"recommendedProducts\": 20,\r\n    \"users\": 20\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/rest/test-data",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["rest", "test-data"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "rest-count-test-data Copy",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/rest/test-data/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["rest", "test-data", ""]
+        }
+      },
+      "response": []
     }
   ]
 }
