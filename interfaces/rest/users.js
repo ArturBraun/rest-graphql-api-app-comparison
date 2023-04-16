@@ -20,14 +20,14 @@ usersRouter.get("/:id", (req, res) => {
     });
 });
 
-usersRouter.get("/", (req, res) => {
-  findAllUsers()
-    .then((users) => res.json(users))
-    .catch((error) => {
-      console.error(error.message);
-      res.status(400).send();
-    });
-});
+// usersRouter.get("/", (req, res) => {
+//   findAllUsers()
+//     .then((users) => res.json(users))
+//     .catch((error) => {
+//       console.error(error.message);
+//       res.status(400).send();
+//     });
+// });
 
 usersRouter.post("/", (req, res) => {
   addNewUser(req.body)

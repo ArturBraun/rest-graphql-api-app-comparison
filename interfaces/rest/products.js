@@ -20,7 +20,10 @@ productsRouter.get("/:id", (req, res) => {
 });
 
 productsRouter.get("/", (req, res) => {
-  findPaginatedProducts(req.query.pageNumber, req.query.pageSize)
+  findPaginatedProducts(
+    parseInt(req.query.pageNumber),
+    parseInt(req.query.pageSize)
+  )
     .then((products) => res.json(products))
     .catch((error) => {
       console.error(error.message);

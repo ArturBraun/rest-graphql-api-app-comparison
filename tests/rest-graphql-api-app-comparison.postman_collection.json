@@ -145,7 +145,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetProductById {\r\n  product(id:5) {\r\n    productId\r\n    name\r\n  }\r\n}",
+            "query": "query GetProductById {\r\n  product(id:7456) {\r\n    productId\r\n    name\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -233,7 +233,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"email\": \"user2@gmail.com\",\r\n    \"firstName\": \"Jan2\",\r\n    \"lastName\": \"Kowalski2\",\r\n    \"dateOfBirth\":\"11-03-1989\",\r\n    \"address\": \"Janusza 33, 00-123 Warsaw\",\r\n    \"gender\": \"M\"\r\n}",
+          "raw": "{\r\n    \"email\": \"user2@gmail.com\",\r\n    \"firstName\": \"Jan2\",\r\n    \"lastName\": \"Kowalski2\",\r\n    \"dateOfBirth\":\"11-03-1989\",\r\n    \"gender\": \"M\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -251,31 +251,41 @@
       "response": []
     },
     {
-      "name": "rest-product-get",
+      "name": "rest-products-paginated-get",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/products/3",
+          "raw": "http://localhost:4000/rest/products?pageNumber=2&pageSize=20",
           "protocol": "http",
           "host": ["localhost"],
           "port": "4000",
-          "path": ["rest", "products", "3"]
+          "path": ["rest", "products"],
+          "query": [
+            {
+              "key": "pageNumber",
+              "value": "2"
+            },
+            {
+              "key": "pageSize",
+              "value": "20"
+            }
+          ]
         }
       },
       "response": []
     },
     {
-      "name": "rest-get-products",
+      "name": "rest-product-get",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/products/",
+          "raw": "http://localhost:4000/rest/products/7456",
           "protocol": "http",
           "host": ["localhost"],
           "port": "4000",
-          "path": ["rest", "products", ""]
+          "path": ["rest", "products", "7456"]
         }
       },
       "response": []

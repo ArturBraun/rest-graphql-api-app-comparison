@@ -44,8 +44,6 @@ const addNewOrder = (newOrder, requiredFields) => {
     createObject.select = getRequestedFieldsSelectObject(requiredFields);
   }
 
-  console.log(JSON.stringify(createObject));
-
   return dbClient.order.create(createObject);
 };
 
