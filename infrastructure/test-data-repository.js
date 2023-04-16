@@ -4,15 +4,16 @@ const deleteAllData = async () => {
   await Promise.all([
     dbClient.recommendedProduct.deleteMany({}),
     dbClient.orderPosition.deleteMany({}),
-    dbClient.category.deleteMany({}),
   ]);
 
   await dbClient.order.deleteMany({});
 
-  return Promise.all([
+  await Promise.all([
     dbClient.product.deleteMany({}),
     dbClient.user.deleteMany({}),
   ]);
+
+  return dbClient.category.deleteMany({});
 };
 
 const countAllData = async () => {

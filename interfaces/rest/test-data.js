@@ -30,54 +30,59 @@ const generateNewCategoryData = (id) => {
   };
 };
 
-const generateNewProductData = (id, numOfCategories) => {
+const generateNewProductData = (minCategoryId, id, numOfCategories) => {
   return {
     name: `Product ${id} name`,
     description: `Product ${id} detailed description`,
     price: 100 + getRandomInt(10000),
-    categoryId: id % numOfCategories,
+    categoryId: minCategoryId + (id % numOfCategories),
   };
 };
 
-const generateNewRecommendedProductData = (id, numOfProducts) => {
+const generateNewRecommendedProductData = (id) => {
   return {
-    productId: numOfProducts - id,
+    productId: id,
   };
 };
 
 const createTestData = async (numOfRecordsOfEntities) => {
+  const countedExistingData = await countAllData();
+
   const categoriesPromises = [];
   for (let i = 1; i <= numOfRecordsOfEntities.categories; i++) {
-    categoriesPromises.push(addNewCategory(generateNewCategoryData(i)));
-  }
-  const categories = await Promise.all(categoriesPromises);
-  const minCategoryId = categories[0].categoryId;
-
-  const productsPromises = [];
-  for (
-    let i = minCategoryId;
-    i <= minCategoryId + numOfRecordsOfEntities.products;
-    i++
-  ) {
-    productsPromises.push(
-      addNewProduct(
-        generateNewProductData(i, numOfRecordsOfEntities.categories)
+    categoriesPromises.push(
+      addNewCategory(
+        generateNewCategoryData(countedExistingData.categories + i)
       )
     );
   }
+  const categories = await Promise.all(categoriesPromises);
+  const minCategoryId = Math.min(
+    ...categories.map((category) => category.categoryId)
+  );
+
+  const productsPromises = [];
+  for (let i = 1; i <= numOfRecordsOfEntities.products; i++) {
+    const product = generateNewProductData(
+      minCategoryId,
+      countedExistingData.products + i,
+      numOfRecordsOfEntities.categories
+    );
+    productsPromises.push(addNewProduct(product));
+  }
   const products = await Promise.all(productsPromises);
-  const minProductId = products[0].productId;
+  const maxProductId = Math.max(
+    ...products.map((product) => product.productId)
+  );
 
   const promises = [];
   for (
-    let i = minProductId;
-    i <= minProductId + numOfRecordsOfEntities.recommendedProducts;
-    i++
+    let i = maxProductId;
+    i > maxProductId - numOfRecordsOfEntities.recommendedProducts;
+    i--
   ) {
     promises.push(
-      addNewRecommendedProduct(
-        generateNewRecommendedProductData(i, numOfRecordsOfEntities.products)
-      )
+      addNewRecommendedProduct(generateNewRecommendedProductData(i))
     );
   }
 
