@@ -18,10 +18,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/graphql",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/graphql",
+          "host": ["{{HOST}}"],
           "path": ["graphql"]
         }
       },
@@ -40,10 +38,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/graphql",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/graphql",
+          "host": ["{{HOST}}"],
           "path": ["graphql"]
         }
       },
@@ -62,10 +58,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/graphql",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/graphql",
+          "host": ["{{HOST}}"],
           "path": ["graphql"]
         }
       },
@@ -84,10 +78,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/graphql",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/graphql",
+          "host": ["{{HOST}}"],
           "path": ["graphql"]
         }
       },
@@ -106,10 +98,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/graphql",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/graphql",
+          "host": ["{{HOST}}"],
           "path": ["graphql"]
         }
       },
@@ -128,10 +118,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/graphql",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/graphql",
+          "host": ["{{HOST}}"],
           "path": ["graphql"]
         }
       },
@@ -150,10 +138,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/graphql",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/graphql",
+          "host": ["{{HOST}}"],
           "path": ["graphql"]
         }
       },
@@ -167,15 +153,13 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetRecommendedProducts {\r\n  recommendedProducts(limit:2) {\r\n    productId\r\n    product {\r\n        name\r\n        category {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
+            "query": "query GetRecommendedProducts {\r\n  recommendedProducts(limit:2) {\r\n    productId\r\n    product {\r\n        name\r\n    }\r\n  }\r\n}",
             "variables": ""
           }
         },
         "url": {
-          "raw": "http://localhost:4000/graphql",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/graphql",
+          "host": ["{{HOST}}"],
           "path": ["graphql"]
         }
       },
@@ -187,26 +171,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/users/1/orders",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/users/1/orders",
+          "host": ["{{HOST}}"],
           "path": ["rest", "users", "1", "orders"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "rest-users-get",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:4000/rest/users/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
-          "path": ["rest", "users", ""]
         }
       },
       "response": []
@@ -217,10 +184,8 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/users/2",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/users/2",
+          "host": ["{{HOST}}"],
           "path": ["rest", "users", "2"]
         }
       },
@@ -241,10 +206,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/rest/users/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/users/",
+          "host": ["{{HOST}}"],
           "path": ["rest", "users", ""]
         }
       },
@@ -256,10 +219,8 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/products?pageNumber=2&pageSize=20",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/products?pageNumber=2&pageSize=20",
+          "host": ["{{HOST}}"],
           "path": ["rest", "products"],
           "query": [
             {
@@ -281,10 +242,8 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/products/7456",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/products/7456",
+          "host": ["{{HOST}}"],
           "path": ["rest", "products", "7456"]
         }
       },
@@ -305,10 +264,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/rest/products/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/products/",
+          "host": ["{{HOST}}"],
           "path": ["rest", "products", ""]
         }
       },
@@ -320,10 +277,8 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/products/recommended?limit=2",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/products/recommended?limit=2",
+          "host": ["{{HOST}}"],
           "path": ["rest", "products", "recommended"],
           "query": [
             {
@@ -350,10 +305,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/rest/products/recommended",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/products/recommended",
+          "host": ["{{HOST}}"],
           "path": ["rest", "products", "recommended"]
         }
       },
@@ -365,11 +318,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/orders/1",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
-          "path": ["rest", "orders", "1"]
+          "raw": "{{HOST}}/rest/orders/127",
+          "host": ["{{HOST}}"],
+          "path": ["rest", "orders", "127"]
         }
       },
       "response": []
@@ -389,10 +340,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/rest/orders/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/orders/",
+          "host": ["{{HOST}}"],
           "path": ["rest", "orders", ""]
         }
       },
@@ -404,10 +353,8 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/categories/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/categories/",
+          "host": ["{{HOST}}"],
           "path": ["rest", "categories", ""]
         }
       },
@@ -428,10 +375,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/rest/categories/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/categories/",
+          "host": ["{{HOST}}"],
           "path": ["rest", "categories", ""]
         }
       },
@@ -443,10 +388,8 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/test-data/count",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/test-data/count",
+          "host": ["{{HOST}}"],
           "path": ["rest", "test-data", "count"]
         }
       },
@@ -467,10 +410,8 @@
           }
         },
         "url": {
-          "raw": "http://localhost:4000/rest/test-data",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/test-data",
+          "host": ["{{HOST}}"],
           "path": ["rest", "test-data"]
         }
       },
@@ -482,10 +423,8 @@
         "method": "DELETE",
         "header": [],
         "url": {
-          "raw": "http://localhost:4000/rest/test-data/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "4000",
+          "raw": "{{HOST}}/rest/test-data/",
+          "host": ["{{HOST}}"],
           "path": ["rest", "test-data", ""]
         }
       },
