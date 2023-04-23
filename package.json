@@ -4,15 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prisma-generate": "npx prisma generate --schema=./infrastructure/database/schema.prisma",
-    "prisma-migrate:dev": "npx prisma migrate dev --schema=./infrastructure/database/schema.prisma",
-    "prisma-migrate:prod": "npx prisma migrate deploy --schema=./infrastructure/database/schema.prisma",
-    "prisma-format": "npx prisma format --schema=./infrastructure/database/schema.prisma",
+    "prisma:generate": "npx prisma generate --schema=./infrastructure/database/schema.prisma",
+    "prisma:migrate:dev": "npx prisma migrate dev --schema=./infrastructure/database/schema.prisma",
+    "prisma:migrate:prod": "npx prisma migrate deploy --schema=./infrastructure/database/schema.prisma",
+    "prisma:format": "npx prisma format --schema=./infrastructure/database/schema.prisma",
     "start:dev": "nodemon app.js",
     "start:prod": "node app.js",
     "format-code": "prettier --write .",
-    "build-docker-image": "docker build -t rest-graphql-api-app-comparison .",
-    "start-docker-image": "docker run -p 4000:4000 rest-graphql-api-app-comparison"
+    "docker:build": "docker build -t us-central1-docker.pkg.dev/prime-tractor-345811/master-thesis/rest-graphql-api-app-comparison .",
+    "docker:run": "docker run -p 4000:4000 us-central1-docker.pkg.dev/prime-tractor-345811/master-thesis/rest-graphql-api-app-comparison",
+    "docker:push": "docker push us-central1-docker.pkg.dev/prime-tractor-345811/master-thesis/rest-graphql-api-app-comparison"
   },
   "dependencies": {
     "@apollo/server": "^4.5.0",

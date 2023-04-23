@@ -7,7 +7,7 @@ COPY . .
 RUN chown -R node /usr/src/app
 
 RUN yarn install --production --silent
-RUN yarn run prisma-generate && yarn run prisma-migrate:prod
+RUN yarn run prisma:generate && yarn run prisma:migrate:prod
 
 EXPOSE 4000
 USER node
