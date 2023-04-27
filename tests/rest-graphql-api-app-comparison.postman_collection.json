@@ -6,7 +6,27 @@
   },
   "item": [
     {
-      "name": "graphql-users-get",
+      "name": "graphql-create-user",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation CreateNewUser {\r\n  createNewUser(newUser: {     \r\n    email: \"user2@gmail.com\",\r\n    firstName: \"Jan2\",\r\n    lastName: \"Kowalski2\",\r\n    dateOfBirth:\"11-03-1989\",\r\n    gender: \"M\"\r\n  }) {\r\n    userId\r\n  }\r\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "{{HOST}}/graphql",
+          "host": ["{{HOST}}"],
+          "path": ["graphql"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "graphql-user-get",
       "request": {
         "method": "POST",
         "header": [],

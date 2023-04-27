@@ -23,10 +23,15 @@ const findAllUsers = (requiredFields) => {
   return dbClient.user.findMany(queryObject);
 };
 
-const addNewUser = (newUser) => {
-  const createdUser = dbClient.user.create({
+const addNewUser = (newUser, requiredFields) => {
+  const newUserData = {
     data: newUser,
-  });
+  };
+  if (requiredFields) {
+    newUserData.select = getRequestedFieldsSelectObject(requiredFields);
+  }
+
+  const createdUser = dbClient.user.create(newUserData);
   return createdUser;
 };
 
