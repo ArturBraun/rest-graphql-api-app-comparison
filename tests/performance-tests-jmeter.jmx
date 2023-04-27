@@ -20,7 +20,7 @@
           </elementProp>
           <elementProp name="num_user" elementType="Argument">
             <stringProp name="Argument.name">num_user</stringProp>
-            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.value">50</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="ramp_up" elementType="Argument">
@@ -36,6 +36,11 @@
           <elementProp name="delay" elementType="Argument">
             <stringProp name="Argument.name">delay</stringProp>
             <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="target_throughput_per_minute" elementType="Argument">
+            <stringProp name="Argument.name">target_throughput_per_minute</stringProp>
+            <stringProp name="Argument.value">3000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -332,6 +337,11 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">2</intProp>
+          <stringProp name="throughput">${target_throughput_per_minute}</stringProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Graphql API" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -439,7 +449,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument" enabled="true">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetCategories {\n  categories {\n    categoryId\n    name\n  }\n}&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetRecommendedProducts {\n  recommendedProducts(limit:2) {\n    productId\n    product {\n        name\n    }\n  }\n}&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -456,10 +466,12 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="GraphQLHTTPSampler.operationName"></stringProp>
-          <stringProp name="GraphQLHTTPSampler.query">query GetCategories {
-  categories {
-    categoryId
-    name
+          <stringProp name="GraphQLHTTPSampler.query">query GetRecommendedProducts {
+  recommendedProducts(limit:2) {
+    productId
+    product {
+        name
+    }
   }
 }</stringProp>
           <stringProp name="GraphQLHTTPSampler.variables"></stringProp>
@@ -509,7 +521,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument" enabled="true">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetPaginatedProducts {\n  products(pageNumber:1, pageSize:2) {\n    productId\n    name\n  }\n}&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetPaginatedProducts {\n  products(pageNumber:2, pageSize:20) {\n    productId\n    name\n  }\n}&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -527,7 +539,7 @@
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="GraphQLHTTPSampler.operationName"></stringProp>
           <stringProp name="GraphQLHTTPSampler.query">query GetPaginatedProducts {
-  products(pageNumber:1, pageSize:2) {
+  products(pageNumber:2, pageSize:20) {
     productId
     name
   }
@@ -544,7 +556,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument" enabled="true">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetPaginatedProducts {\n  products(pageNumber:1, pageSize:2) {\n    productId\n    name\n  }\n}&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;mutation CreateNewUser {\n  createNewUser(newUser: {     \n    email: \&quot;user-email-${user_number}@gmail.com\&quot;,\n    firstName: \&quot;UserFirstName${user_number}\&quot;,\n    lastName: \&quot;UserLastName${user_number}\&quot;,\n    dateOfBirth:\&quot;11-03-1989\&quot;,\n    gender: \&quot;M\&quot;\n  }) {\n    userId\n  }\n}&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -561,10 +573,15 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="GraphQLHTTPSampler.operationName"></stringProp>
-          <stringProp name="GraphQLHTTPSampler.query">query GetPaginatedProducts {
-  products(pageNumber:1, pageSize:2) {
-    productId
-    name
+          <stringProp name="GraphQLHTTPSampler.query">mutation CreateNewUser {
+  createNewUser(newUser: {     
+    email: &quot;user-email-${user_number}@gmail.com&quot;,
+    firstName: &quot;UserFirstName${user_number}&quot;,
+    lastName: &quot;UserLastName${user_number}&quot;,
+    dateOfBirth:&quot;11-03-1989&quot;,
+    gender: &quot;M&quot;
+  }) {
+    userId
   }
 }</stringProp>
           <stringProp name="GraphQLHTTPSampler.variables"></stringProp>
@@ -573,13 +590,20 @@
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
-        <hashTree/>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="User id extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">user_id</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.createNewUser.userId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
         <HTTPSamplerProxy guiclass="GraphQLHTTPSamplerGui" testclass="HTTPSamplerProxy" testname="Graphql get user" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument" enabled="true">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetPaginatedProducts {\n  products(pageNumber:1, pageSize:2) {\n    productId\n    name\n  }\n}&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetUser {\n  user(id: ${user_id}) {\n    firstName\n    lastName\n    dateOfBirth\n  }\n}&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -596,10 +620,11 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="GraphQLHTTPSampler.operationName"></stringProp>
-          <stringProp name="GraphQLHTTPSampler.query">query GetPaginatedProducts {
-  products(pageNumber:1, pageSize:2) {
-    productId
-    name
+          <stringProp name="GraphQLHTTPSampler.query">query GetUser {
+  user(id: ${user_id}) {
+    firstName
+    lastName
+    dateOfBirth
   }
 }</stringProp>
           <stringProp name="GraphQLHTTPSampler.variables"></stringProp>
@@ -614,7 +639,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument" enabled="true">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetUsers {\n  user(id: 1) {\n    firstName\n    lastName\n    dateOfBirth\n  }\n}&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;mutation PlaceOrder {\n  placeOrder(order: {     \n    userId: ${user_id},\n    deliveryMethod: \&quot;HOME_DELIVERY\&quot;,\n    paymentMethod: \&quot;PAYPAL\&quot;,\n    address: \&quot;Warszawska ${user_id}\&quot;,\n    postalCode: \&quot;22-456\&quot;,\n    city: \&quot;Warsaw\&quot;,\n    country: \&quot;Poland\&quot;,\n    phone: \&quot;000123000\&quot;,\n    orderPositions: [\n        {\n            productId: 7483,\n            quantity: 1\n        },\n        {\n            productId: 7487,\n            quantity: 2\n        }\n    ]\n  }) {\n    orderId\n  }\n}&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -631,11 +656,28 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="GraphQLHTTPSampler.operationName"></stringProp>
-          <stringProp name="GraphQLHTTPSampler.query">query GetUsers {
-  user(id: 1) {
-    firstName
-    lastName
-    dateOfBirth
+          <stringProp name="GraphQLHTTPSampler.query">mutation PlaceOrder {
+  placeOrder(order: {     
+    userId: ${user_id},
+    deliveryMethod: &quot;HOME_DELIVERY&quot;,
+    paymentMethod: &quot;PAYPAL&quot;,
+    address: &quot;Warszawska ${user_id}&quot;,
+    postalCode: &quot;22-456&quot;,
+    city: &quot;Warsaw&quot;,
+    country: &quot;Poland&quot;,
+    phone: &quot;000123000&quot;,
+    orderPositions: [
+        {
+            productId: 7483,
+            quantity: 1
+        },
+        {
+            productId: 7487,
+            quantity: 2
+        }
+    ]
+  }) {
+    orderId
   }
 }</stringProp>
           <stringProp name="GraphQLHTTPSampler.variables"></stringProp>
@@ -650,7 +692,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument" enabled="true">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetUsers {\n  user(id: 1) {\n    firstName\n    lastName\n    dateOfBirth\n  }\n}&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query UserOrders {\n  userOrders(userId: ${user_id}) {\n    orderId\n    userId\n    createdAt\n    totalPrice\n    deliveryMethod\n    paymentMethod\n    address\n    orderPositions {\n        orderId\n        productId\n        quantity\n        product {\n            name\n        }\n    }\n  }\n}&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -667,11 +709,23 @@
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="GraphQLHTTPSampler.operationName"></stringProp>
-          <stringProp name="GraphQLHTTPSampler.query">query GetUsers {
-  user(id: 1) {
-    firstName
-    lastName
-    dateOfBirth
+          <stringProp name="GraphQLHTTPSampler.query">query UserOrders {
+  userOrders(userId: ${user_id}) {
+    orderId
+    userId
+    createdAt
+    totalPrice
+    deliveryMethod
+    paymentMethod
+    address
+    orderPositions {
+        orderId
+        productId
+        quantity
+        product {
+            name
+        }
+    }
   }
 }</stringProp>
           <stringProp name="GraphQLHTTPSampler.variables"></stringProp>
@@ -680,6 +734,11 @@
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
+        <hashTree/>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">2</intProp>
+          <stringProp name="throughput">${target_throughput_per_minute}</stringProp>
+        </ConstantThroughputTimer>
         <hashTree/>
       </hashTree>
     </hashTree>
