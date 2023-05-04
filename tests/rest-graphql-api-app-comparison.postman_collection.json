@@ -33,7 +33,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetUsers {\r\n  user(id: 1) {\r\n    firstName\r\n    lastName\r\n    dateOfBirth\r\n  }\r\n}",
+            "query": "query GetUser {\r\n  user(id: 150) {\r\n    firstName\r\n    lastName\r\n    dateOfBirth\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -204,9 +204,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{HOST}}/rest/users/2",
+          "raw": "{{HOST}}/rest/users/150",
           "host": ["{{HOST}}"],
-          "path": ["rest", "users", "2"]
+          "path": ["rest", "users", "150"]
         }
       },
       "response": []
@@ -262,9 +262,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{HOST}}/rest/products/7456",
+          "raw": "{{HOST}}/rest/products/51050",
           "host": ["{{HOST}}"],
-          "path": ["rest", "products", "7456"]
+          "path": ["rest", "products", "51050"]
         }
       },
       "response": []
@@ -422,7 +422,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"categories\": 10,\r\n    \"products\": 100,\r\n    \"recommendedProducts\": 20,\r\n    \"users\": 20\r\n}",
+          "raw": "{\r\n    \"categories\": 300,\r\n    \"products\": 100000,\r\n    \"recommendedProducts\": 30,\r\n    \"users\": 30000\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -438,7 +438,7 @@
       "response": []
     },
     {
-      "name": "rest-count-test-data Copy",
+      "name": "rest-delete-test-data",
       "request": {
         "method": "DELETE",
         "header": [],

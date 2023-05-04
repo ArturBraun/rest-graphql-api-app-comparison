@@ -61,19 +61,26 @@ const createTestData = async (numOfRecordsOfEntities) => {
     ...categories.map((category) => category.categoryId)
   );
 
-  const productsPromises = [];
+  const products = [];
   for (let i = 1; i <= numOfRecordsOfEntities.products; i++) {
     const product = generateNewProductData(
       minCategoryId,
       countedExistingData.products + i,
       numOfRecordsOfEntities.categories
     );
-    productsPromises.push(addNewProduct(product));
+    // Removed promises array and removed awaiting Promises.all()
+    // Changed code to await adding every product due to the error in Prisma (in SQLLite)
+    // -> "ConnectionError(Timed out during query execution.)"
+    products.push(await addNewProduct(product));
   }
-  const products = await Promise.all(productsPromises);
   const maxProductId = Math.max(
     ...products.map((product) => product.productId)
   );
+
+  for (let i = 1; i <= numOfRecordsOfEntities.users; i++) {
+    // Same as in products, removed promises array to avoid getting timeout error
+    await addNewUser(generateNewUserData(i));
+  }
 
   const promises = [];
   for (
@@ -84,10 +91,6 @@ const createTestData = async (numOfRecordsOfEntities) => {
     promises.push(
       addNewRecommendedProduct(generateNewRecommendedProductData(i))
     );
-  }
-
-  for (let i = 1; i <= numOfRecordsOfEntities.users; i++) {
-    promises.push(addNewUser(generateNewUserData(i)));
   }
 
   return Promise.all(promises);
