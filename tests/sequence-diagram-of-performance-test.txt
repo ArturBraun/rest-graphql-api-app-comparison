@@ -1,0 +1,25 @@
+title Diagram sekwencji dla scenariusza testowego
+
+actor Użytkownik
+
+Użytkownik->Frontend aplikacji uruchamiany w przeglądarce: wyświetla stronę startową sklepu
+Frontend aplikacji uruchamiany w przeglądarce->Aplikacja testowa uruchomiona na serwerze: zwróć rekomendowane produkty
+Aplikacja testowa uruchomiona na serwerze->Frontend aplikacji uruchamiany w przeglądarce: odpowiedź zawierająca rekomendowane produkty
+Frontend aplikacji uruchamiany w przeglądarce->Aplikacja testowa uruchomiona na serwerze: zwróć wszystkie kategorie produktów
+Aplikacja testowa uruchomiona na serwerze->Frontend aplikacji uruchamiany w przeglądarce: odpowiedź zawierająca wszystkie kategorie
+Frontend aplikacji uruchamiany w przeglądarce->Użytkownik: wyświetlenie strony startowej sklepu z wymaganą treścią pobraną z serwera
+
+Użytkownik->Frontend aplikacji uruchamiany w przeglądarce: wybór interesującej kategorii
+Frontend aplikacji uruchamiany w przeglądarce->Aplikacja testowa uruchomiona na serwerze: zwróć 1. stronę produktów z danej kategorii zawierającą 20 produktów 
+Aplikacja testowa uruchomiona na serwerze->Frontend aplikacji uruchamiany w przeglądarce: odpowiedź zawierająca produkty
+Frontend aplikacji uruchamiany w przeglądarce->Użytkownik: wyświetlenie 1 strony produktów z danej kategorii
+
+Użytkownik->Frontend aplikacji uruchamiany w przeglądarce: dodanie interesujących produktów do koszyka
+Frontend aplikacji uruchamiany w przeglądarce->Użytkownik: dodanie do koszyka w pamięci podręcznej
+
+Użytkownik->Frontend aplikacji uruchamiany w przeglądarce: złożenie zamówienia poprzez rejestracje nowego użytkownika i wypełnienie niezbędnych danych
+Frontend aplikacji uruchamiany w przeglądarce->Aplikacja testowa uruchomiona na serwerze: utwórz nowego użytkownika dla podanych danych
+Aplikacja testowa uruchomiona na serwerze->Frontend aplikacji uruchamiany w przeglądarce: id nowo utworzonego użytkownika
+Frontend aplikacji uruchamiany w przeglądarce->Aplikacja testowa uruchomiona na serwerze: utwórz nowe zamówienie dla użytkownika o podanym id i podanych danych
+Aplikacja testowa uruchomiona na serwerze->Frontend aplikacji uruchamiany w przeglądarce: id nowo utworzonego zamówienia
+Frontend aplikacji uruchamiany w przeglądarce->Użytkownik: wyświetlenie id i powtierdzenia złożonego zamówienia 
