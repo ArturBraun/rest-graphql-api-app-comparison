@@ -126,14 +126,14 @@
       "response": []
     },
     {
-      "name": "graphql-products-paginated-get",
+      "name": "graphql-products-by-categoryId-paginated-get",
       "request": {
         "method": "POST",
         "header": [],
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetPaginatedProducts {\r\n  products(pageNumber:1, pageSize:2) {\r\n    productId\r\n    name\r\n  }\r\n}",
+            "query": "query GetPaginatedProducts {\r\n  products(categoryId:4000, pageNumber:1, pageSize:20) {\r\n    productId\r\n    name\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -234,14 +234,14 @@
       "response": []
     },
     {
-      "name": "rest-products-paginated-get",
+      "name": "rest-categories-get-products-paginated",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{HOST}}/rest/products?pageNumber=2&pageSize=20",
+          "raw": "{{HOST}}/rest/categories/4000/products?pageNumber=2&pageSize=20",
           "host": ["{{HOST}}"],
-          "path": ["rest", "products"],
+          "path": ["rest", "categories", "4000", "products"],
           "query": [
             {
               "key": "pageNumber",

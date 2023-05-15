@@ -14,8 +14,17 @@ const findProductById = (id, requiredFields) => {
   return dbClient.product.findUnique(queryObject);
 };
 
-const findPaginatedProducts = (pageNumber, pageSize, requiredFields) => {
-  const queryObject = {};
+const findPaginatedProductsByCategoryId = (
+  categoryId,
+  pageNumber,
+  pageSize,
+  requiredFields
+) => {
+  const queryObject = {
+    where: {
+      categoryId: categoryId,
+    },
+  };
   if (requiredFields) {
     queryObject.select = getRequestedFieldsSelectObject(requiredFields);
   }
@@ -46,7 +55,7 @@ const findProductsByIds = (ids) => {
 
 export {
   findProductById,
-  findPaginatedProducts,
+  findPaginatedProductsByCategoryId,
   addNewProduct,
   findProductsByIds,
 };

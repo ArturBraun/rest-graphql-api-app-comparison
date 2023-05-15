@@ -9,7 +9,7 @@ const productTypeDefs = `
     }
 
     type Query {
-        products(pageNumber: Int, pageSize: Int): [Product]
+        products(categoryId: Int, pageNumber: Int, pageSize: Int): [Product]
         product(id: ID!): Product
     }
 `;

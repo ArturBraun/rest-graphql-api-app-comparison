@@ -1,7 +1,6 @@
 import { Router } from "express";
 import {
   findProductById,
-  findPaginatedProducts,
   addNewProduct,
 } from "../../infrastructure/products-repository.js";
 
@@ -13,18 +12,6 @@ productsRouter.get("/:id", (req, res) => {
       if (!product) res.status(404).send();
       else res.json(product);
     })
-    .catch((error) => {
-      console.error(error.message);
-      res.status(400).send();
-    });
-});
-
-productsRouter.get("/", (req, res) => {
-  findPaginatedProducts(
-    parseInt(req.query.pageNumber),
-    parseInt(req.query.pageSize)
-  )
-    .then((products) => res.json(products))
     .catch((error) => {
       console.error(error.message);
       res.status(400).send();
