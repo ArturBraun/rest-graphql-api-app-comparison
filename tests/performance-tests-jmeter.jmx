@@ -8,6 +8,11 @@
       <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Benutzer definierte Variablen" enabled="true">
         <collectionProp name="Arguments.arguments">
+          <elementProp name="protocol" elementType="Argument">
+            <stringProp name="Argument.name">protocol</stringProp>
+            <stringProp name="Argument.value">http</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
           <elementProp name="hostname" elementType="Argument">
             <stringProp name="Argument.name">hostname</stringProp>
             <stringProp name="Argument.value">localhost</stringProp>
@@ -201,7 +206,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/rest/products/recommended?limit=2</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -220,7 +225,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/rest/categories/</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -239,9 +244,9 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/rest/products?pageNumber=2&amp;pageSize=20</stringProp>
+          <stringProp name="HTTPSampler.path">/rest/categories/4150/products?pageNumber=2&amp;pageSize=20</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -271,7 +276,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/rest/users</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -297,7 +302,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/rest/users/${user_id}</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -327,11 +332,11 @@
     &quot;phone&quot;: &quot;123456789&quot;,&#xd;
     &quot;orderPositions&quot;: [&#xd;
         {&#xd;
-            &quot;productId&quot;: 7485,&#xd;
+            &quot;productId&quot;: 62387,&#xd;
             &quot;quantity&quot;: 3&#xd;
         },&#xd;
         {&#xd;
-            &quot;productId&quot;: 7482,&#xd;
+            &quot;productId&quot;: 52431,&#xd;
             &quot;quantity&quot;: 2&#xd;
         }&#xd;
     ]&#xd;
@@ -342,7 +347,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/rest/orders/</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -361,7 +366,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/rest/users/${user_id}/orders</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -523,7 +528,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument" enabled="true">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetRecommendedProducts {\n  recommendedProducts(limit:2) {\n    productId\n    product {\n        name\n    }\n  }\n}&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetRecommendedProducts {\n  recommendedProducts(limit:2) {\n    productId\n  }\n}&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -531,7 +536,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/graphql</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -543,9 +548,6 @@
           <stringProp name="GraphQLHTTPSampler.query">query GetRecommendedProducts {
   recommendedProducts(limit:2) {
     productId
-    product {
-        name
-    }
   }
 }</stringProp>
           <stringProp name="GraphQLHTTPSampler.variables"></stringProp>
@@ -568,7 +570,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/graphql</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -595,7 +597,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument" enabled="true">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetPaginatedProducts {\n  products(pageNumber:2, pageSize:20) {\n    productId\n    name\n  }\n}&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;query GetPaginatedProducts {\n  products(categoryId:4000, pageNumber:1, pageSize:20) {\n    productId\n    name\n  }\n}&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -603,7 +605,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/graphql</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -613,7 +615,7 @@
           <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
           <stringProp name="GraphQLHTTPSampler.operationName"></stringProp>
           <stringProp name="GraphQLHTTPSampler.query">query GetPaginatedProducts {
-  products(pageNumber:2, pageSize:20) {
+  products(categoryId:4000, pageNumber:1, pageSize:20) {
     productId
     name
   }
@@ -638,7 +640,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/graphql</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -685,7 +687,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/graphql</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -713,7 +715,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument" enabled="true">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;mutation PlaceOrder {\n  placeOrder(order: {     \n    userId: ${user_id},\n    deliveryMethod: \&quot;HOME_DELIVERY\&quot;,\n    paymentMethod: \&quot;PAYPAL\&quot;,\n    address: \&quot;Warszawska ${user_id}\&quot;,\n    postalCode: \&quot;22-456\&quot;,\n    city: \&quot;Warsaw\&quot;,\n    country: \&quot;Poland\&quot;,\n    phone: \&quot;000123000\&quot;,\n    orderPositions: [\n        {\n            productId: 7483,\n            quantity: 1\n        },\n        {\n            productId: 7487,\n            quantity: 2\n        }\n    ]\n  }) {\n    orderId\n  }\n}&quot;}</stringProp>
+                <stringProp name="Argument.value">{&quot;operationName&quot;:null,&quot;query&quot;:&quot;mutation PlaceOrder {\n  placeOrder(order: {     \n    userId: ${user_id},\n    deliveryMethod: \&quot;HOME_DELIVERY\&quot;,\n    paymentMethod: \&quot;PAYPAL\&quot;,\n    address: \&quot;Warszawska ${user_id}\&quot;,\n    postalCode: \&quot;22-456\&quot;,\n    city: \&quot;Warsaw\&quot;,\n    country: \&quot;Poland\&quot;,\n    phone: \&quot;000123000\&quot;,\n    orderPositions: [\n        {\n            productId: 70620,\n            quantity: 1\n        },\n        {\n            productId: 72831,\n            quantity: 2\n        }\n    ]\n  }) {\n    orderId\n  }\n}&quot;}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
               </elementProp>
@@ -721,7 +723,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/graphql</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -742,11 +744,11 @@
     phone: &quot;000123000&quot;,
     orderPositions: [
         {
-            productId: 7483,
+            productId: 70620,
             quantity: 1
         },
         {
-            productId: 7487,
+            productId: 72831,
             quantity: 2
         }
     ]
@@ -774,7 +776,7 @@
           </elementProp>
           <stringProp name="HTTPSampler.domain">${hostname}</stringProp>
           <stringProp name="HTTPSampler.port">${port}</stringProp>
-          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
           <stringProp name="HTTPSampler.path">/graphql</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
