@@ -1,6 +1,7 @@
 import {
   findOrderById,
   findUserOrders,
+  findUserOrdersWithDetails,
 } from "../../../infrastructure/orders-repository.js";
 import { placeOrder } from "../../../domain/order-service.js";
 import { getRequestedFields } from "../utils.js";
@@ -12,7 +13,7 @@ const getOrder = async (parent, args, contextValue, info) => {
 
 const getUserOrders = async (parent, args, contextValue, info) => {
   const requestedFields = getRequestedFields(info);
-  return findUserOrders(parseInt(args.userId), requestedFields);
+  return findUserOrdersWithDetails(parseInt(args.userId), requestedFields);
 };
 
 const placeNewOrder = async (parent, args, contextValue, info) => {

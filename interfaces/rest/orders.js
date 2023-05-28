@@ -23,7 +23,7 @@ ordersRouter.post("/", (req, res) => {
     })
     .catch((error) => {
       console.error(error.message);
-      res.status(400).send();
+      res.status(400).send({ error: error.message });
     });
 });
 

@@ -17,21 +17,93 @@ const deleteAllData = async () => {
 };
 
 const countAllData = async () => {
+  const recommendedProductAggregate = dbClient.recommendedProduct.aggregate({
+    _count: {
+      _all: true,
+    },
+    _min: {
+      recommendedProductId: true,
+    },
+    _max: {
+      recommendedProductId: true,
+    },
+  });
+
+  const orderPositionAggregate = dbClient.orderPosition.aggregate({
+    _count: {
+      _all: true,
+    },
+    _min: {
+      orderPositionId: true,
+    },
+    _max: {
+      orderPositionId: true,
+    },
+  });
+
+  const orderAggregate = dbClient.order.aggregate({
+    _count: {
+      _all: true,
+    },
+    _min: {
+      orderId: true,
+    },
+    _max: {
+      orderId: true,
+    },
+  });
+
+  const categoryAggregate = dbClient.category.aggregate({
+    _count: {
+      _all: true,
+    },
+    _min: {
+      categoryId: true,
+    },
+    _max: {
+      categoryId: true,
+    },
+  });
+
+  const productAggregate = dbClient.product.aggregate({
+    _count: {
+      _all: true,
+    },
+    _min: {
+      productId: true,
+    },
+    _max: {
+      productId: true,
+    },
+  });
+
+  const userAggregate = dbClient.user.aggregate({
+    _count: {
+      _all: true,
+    },
+    _min: {
+      userId: true,
+    },
+    _max: {
+      userId: true,
+    },
+  });
+
   return Promise.allSettled([
-    dbClient.recommendedProduct.count(),
-    dbClient.orderPosition.count(),
-    dbClient.order.count(),
-    dbClient.category.count(),
-    dbClient.product.count(),
-    dbClient.user.count(),
+    recommendedProductAggregate,
+    orderPositionAggregate,
+    orderAggregate,
+    categoryAggregate,
+    productAggregate,
+    userAggregate,
   ]).then((results) => {
     return {
-      recommendedProducts: results[0].value,
-      orderPositions: results[1].value,
-      orders: results[2].value,
-      categories: results[3].value,
-      products: results[4].value,
-      users: results[5].value,
+      recommendedProducts: results[0],
+      orderPositions: results[1],
+      orders: results[2],
+      categories: results[3],
+      products: results[4],
+      users: results[5],
     };
   });
 };

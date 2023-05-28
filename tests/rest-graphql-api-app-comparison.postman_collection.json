@@ -33,7 +33,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetUser {\r\n  user(id: 150) {\r\n    firstName\r\n    lastName\r\n    dateOfBirth\r\n  }\r\n}",
+            "query": "query GetUser {\r\n  user(id: 31100) {\r\n    firstName\r\n    lastName\r\n    dateOfBirth\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -53,7 +53,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetOrder {\r\n  order(orderId: 3) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    postalCode\r\n    city\r\n    country\r\n    phone\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
+            "query": "query GetOrder {\r\n  order(orderId: 1000) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    postalCode\r\n    city\r\n    country\r\n    phone\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -73,7 +73,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "mutation PlaceOrder {\r\n  placeOrder(order: {     \r\n    userId: 1,\r\n    deliveryMethod: \"HOME_DELIVERY\",\r\n    paymentMethod: \"PAYPAL\",\r\n    address: \"Warszawska 12\",\r\n    postalCode: \"22-456\",\r\n    city: \"Warsaw\",\r\n    country: \"Poland\",\r\n    phone: \"000123000\",\r\n    orderPositions: [\r\n        {\r\n            productId: 1,\r\n            quantity: 1\r\n        },\r\n        {\r\n            productId: 2,\r\n            quantity: 1\r\n        }\r\n    ]\r\n  }) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    postalCode\r\n    city\r\n    country\r\n    phone\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
+            "query": "mutation PlaceOrder {\r\n  placeOrder(order: {     \r\n    userId: 31000,\r\n    deliveryMethod: \"HOME_DELIVERY\",\r\n    paymentMethod: \"PAYPAL\",\r\n    address: \"Warszawska 12\",\r\n    postalCode: \"22-456\",\r\n    city: \"Warsaw\",\r\n    country: \"Poland\",\r\n    phone: \"000123000\",\r\n    orderPositions: [\r\n        {\r\n            productId: 51050,\r\n            quantity: 1\r\n        },\r\n        {\r\n            productId: 51052,\r\n            quantity: 2\r\n        }\r\n    ]\r\n  }) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    postalCode\r\n    city\r\n    country\r\n    phone\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -93,7 +93,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query UserOrders {\r\n  userOrders(userId: 1) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
+            "query": "query UserOrders {\r\n  userOrders(userId: 33049) {\r\n    orderId\r\n    userId\r\n    createdAt\r\n    totalPrice\r\n    deliveryMethod\r\n    paymentMethod\r\n    address\r\n    orderPositions {\r\n        orderId\r\n        productId\r\n        quantity\r\n        product {\r\n            name\r\n        }\r\n    }\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -153,7 +153,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetProductById {\r\n  product(id:7456) {\r\n    productId\r\n    name\r\n  }\r\n}",
+            "query": "query GetProductById {\r\n  product(id:60520) {\r\n    productId\r\n    name\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -191,9 +191,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{HOST}}/rest/users/1/orders",
+          "raw": "{{HOST}}/rest/users/32120/orders",
           "host": ["{{HOST}}"],
-          "path": ["rest", "users", "1", "orders"]
+          "path": ["rest", "users", "32120", "orders"]
         }
       },
       "response": []
@@ -204,9 +204,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{HOST}}/rest/users/150",
+          "raw": "{{HOST}}/rest/users/31100",
           "host": ["{{HOST}}"],
-          "path": ["rest", "users", "150"]
+          "path": ["rest", "users", "31100"]
         }
       },
       "response": []
@@ -352,7 +352,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"userId\": 2,\r\n    \"deliveryMethod\": \"HOME_DELIVERY\",\r\n    \"paymentMethod\": \"PAYPAL\",\r\n    \"address\": \"Warszawska 1\",\r\n    \"postalCode\": \"00-123\",\r\n    \"city\": \"Warsaw\",\r\n    \"country\": \"Poland\",\r\n    \"phone\": \"123456789\",\r\n    \"orderPositions\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 3\r\n        },\r\n        {\r\n            \"productId\": 3,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+          "raw": "{\r\n    \"userId\": 31771,\r\n    \"deliveryMethod\": \"HOME_DELIVERY\",\r\n    \"paymentMethod\": \"PAYPAL\",\r\n    \"address\": \"Warszawska 31771\",\r\n    \"postalCode\": \"00-123\",\r\n    \"city\": \"Warsaw\",\r\n    \"country\": \"Poland\",\r\n    \"phone\": \"123456789\",\r\n    \"orderPositions\": [\r\n        {\r\n            \"productId\": 7485,\r\n            \"quantity\": 3\r\n        },\r\n        {\r\n            \"productId\": 7482,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
           "options": {
             "raw": {
               "language": "json"

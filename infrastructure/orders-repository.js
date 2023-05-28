@@ -30,6 +30,28 @@ const findUserOrders = (userId, requiredFields) => {
   return dbClient.order.findMany(queryObject);
 };
 
+const findUserOrdersWithDetails = (userId, requiredFields) => {
+  const queryObject = {
+    where: {
+      userId: userId,
+    },
+    include: {
+      orderPositions: {
+        include: {
+          product: true,
+        },
+      },
+    },
+  };
+
+  if (requiredFields) {
+    delete queryObject.include;
+    queryObject.select = getRequestedFieldsSelectObject(requiredFields);
+  }
+
+  return dbClient.order.findMany(queryObject);
+};
+
 const addNewOrder = (newOrder, requiredFields) => {
   const orderDao = lodash.cloneDeep(newOrder);
   delete orderDao.orderPositions;
@@ -47,4 +69,9 @@ const addNewOrder = (newOrder, requiredFields) => {
   return dbClient.order.create(createObject);
 };
 
-export { findOrderById, findUserOrders, addNewOrder };
+export {
+  findOrderById,
+  findUserOrders,
+  addNewOrder,
+  findUserOrdersWithDetails,
+};

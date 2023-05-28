@@ -5,6 +5,9 @@ const placeOrder = async (orderRequest, requiredFields) => {
   const orderedProductsInfo = await findProductsByIds(
     orderRequest.orderPositions.map((orderPosition) => orderPosition.productId)
   );
+  if (orderedProductsInfo.length !== orderRequest.orderPositions.length) {
+    throw new Error("Order contains incorrect product ids!");
+  }
   const orderedProductsInfoMap = new Map(
     orderedProductsInfo.map((p) => [p.productId, p])
   );
