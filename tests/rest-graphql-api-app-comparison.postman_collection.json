@@ -173,7 +173,7 @@
         "body": {
           "mode": "graphql",
           "graphql": {
-            "query": "query GetRecommendedProducts {\r\n  recommendedProducts(limit:2) {\r\n    productId\r\n    product {\r\n        name\r\n    }\r\n  }\r\n}",
+            "query": "query GetRecommendedProducts {\r\n  recommendedProducts(limit:3) {\r\n    productId\r\n    product {\r\n        name\r\n        price\r\n    }\r\n  }\r\n}",
             "variables": ""
           }
         },
@@ -297,13 +297,13 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{HOST}}/rest/products/recommended?limit=2",
+          "raw": "{{HOST}}/rest/products/recommended?limit=3",
           "host": ["{{HOST}}"],
           "path": ["rest", "products", "recommended"],
           "query": [
             {
               "key": "limit",
-              "value": "2"
+              "value": "3"
             }
           ]
         }
