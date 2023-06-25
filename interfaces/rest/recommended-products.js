@@ -3,8 +3,10 @@ import {
   findRecommendedProducts,
   addNewRecommendedProduct,
 } from "../../infrastructure/recommended-products-repository.js";
+import { configureRestCaching } from "./caching.js";
 
 const recommendedProductsRouter = Router();
+recommendedProductsRouter.use(configureRestCaching);
 
 recommendedProductsRouter.get("/", (req, res) => {
   if (!req.query.limit) {

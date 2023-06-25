@@ -3,8 +3,10 @@ import {
   findProductById,
   addNewProduct,
 } from "../../infrastructure/products-repository.js";
+import { configureRestCaching } from "./caching.js";
 
 const productsRouter = Router();
+productsRouter.use(configureRestCaching);
 
 productsRouter.get("/:id", (req, res) => {
   findProductById(parseInt(req.params.id))
