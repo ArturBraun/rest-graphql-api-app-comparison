@@ -1,7 +1,7 @@
 // Cache for REST endpoints
 const configureRestCaching = (req, res, next) => {
-  // 30 seconds
-  const cachingPeriod = 30;
+  // 300 seconds
+  const cachingPeriod = 300;
 
   if (req.method == "GET") {
     res.set("Cache-control", `max-age=${cachingPeriod}`);
